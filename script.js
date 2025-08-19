@@ -30,6 +30,18 @@ const sauvegardeEl = document.getElementById("sauvegarde-el");
 function sauvegarder() {
     let compteurStr = "<li>" + compteur + " Pokémons</li>";
     sauvegardeEl.innerHTML += compteurStr; // Ajouter la valeur actuelle du compteur
+    localStorage.setItem("captures", sauvegardeEl.innerHTML); // Sauvegarder les captures dans le localStorage
     compteur = 0;
     compteurEl.textContent = compteur;
 }
+
+
+
+const capturerBtn = document.getElementById("capturer-btn");
+const sauvegarderBtn = document.getElementById("sauvegarder-btn");
+capturerBtn.addEventListener("click", capturer);
+sauvegarderBtn.addEventListener("click", sauvegarder);
+
+window.addEventListener("load", () => { // Attendre que la page soit chargée pour exécuter le code
+    sauvegardeEl.innerHTML = localStorage.getItem("captures") || ""; // Charger les captures sauvegardées ou une chaîne vide
+});
