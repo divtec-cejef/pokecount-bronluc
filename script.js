@@ -6,4 +6,14 @@
  */
 
 "use strict"; // Interprètation stricte du code
-console.log("Hello World"); // Affiche "Hello World" dans la console
+alert("Hello World"); // Affiche "Hello World" dans la console
+document.querySelector("h2").textContent = 20;
+document.getElementById("compteur-el").textContent = 100;
+
+let compteur = 0;
+const compteurEl = document.getElementById("compteur-el");
+
+function capturer() {
+    compteur += 1; // Incrémenter le compteur de 1
+    compteurEl.textContent = compteur; // Actualiser le texte de l'élément <h2>
+}
